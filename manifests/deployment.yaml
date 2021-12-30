@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dwk-environments
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dwk-environments
+  template:
+    metadata:
+      labels:
+        app: dwk-environments
+    spec:
+      containers:
+      - name: dwk-environments
+        image: gcr.io/numeric-anthem-335905/dwk-environments:2c603a3a776f689febb9dee1ce413056fcbc40ac
+        ports:
+        - name: dwk-port
+          containerPort: 3000
